@@ -9,12 +9,14 @@
 </body>
 </html>
 <script>
+
+    
 $('body').terminal({
-    hello: function(what) {
-        this.echo('Hello, ' + what +
-                  '. Wellcome to this terminal.');
-    }
-}, {
-    greetings: 'My First Web Terminal'
-});
+    hello: function get_chat_handle(){
+        chat_interface.question(colors.prompt(`Hello! What's your username? `), function(answer){
+            chat_handle = answer;
+            socket.emit("message", chat_handle + (colors.info(' has entered the chat')));
+            chat();
+    });
+}
 </script>
